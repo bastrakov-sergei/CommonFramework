@@ -1,0 +1,9 @@
+[submodule "HardwareSignalsLibrary"]
+	path = HardwareSignalsLibrary
+	url = https://github.com/sergey-bastrakov/HardwareSignalsLibrary.git
+[submodule "HardwareSignalsInterceptor"]
+	path = HardwareSignalsInterceptor
+	url = https://github.com/sergey-bastrakov/HardwareSignalsInterceptor.git
+[submodule "CommonLibraries"]
+	path = CommonLibraries
+	url = https://github.com/sergey-bastrakov/CommonLibraries.git
