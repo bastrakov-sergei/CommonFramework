@@ -5,13 +5,17 @@ using UnityEngine;
 using Vexe.Runtime.Types;
 
 namespace Assets.Scripts
-{                               
+{
     public class KeyboardInput : BetterBehaviour, IInputReader
     {
-        [SerializeField]
+        [SerializeField] 
+        [Display(Seq.LineNumbers | Seq.PerItemRemove, FormatMethod = "ToDisplayString")] 
+        [PerItem] 
         private List<AxisInput> axisInputs = new List<AxisInput>();
-        [SerializeField]
-        private List<UnityInputButtonInput> buttonInputs = new List<UnityInputButtonInput>();
+        [SerializeField] 
+        [Display(Seq.LineNumbers | Seq.PerItemRemove, FormatMethod = "ToDisplayString")] 
+        [PerItem]
+        private List<ButtonInput> buttonInputs = new List<ButtonInput>();
 
         public float ReadAnalogInput(string key)
         {
@@ -27,7 +31,7 @@ namespace Assets.Scripts
 
         public bool ReadDigitalInput(string key)
         {
-            ButtonInput buttonInput = buttonInputs.FirstOrDefault(reader => reader != null && reader.Key == key );
+            ButtonInput buttonInput = buttonInputs.FirstOrDefault(reader => reader != null && reader.Key == key);
 
             if (buttonInput != null)
             {
@@ -35,6 +39,11 @@ namespace Assets.Scripts
             }
 
             return false;
+        }
+
+        private string ToDisplayString(Input input)
+        {
+            return input != null ? input.Key : "Emtpy";
         }
     }
 }

@@ -12,6 +12,12 @@ namespace Assets.Scripts
         private HardwareInputOutputConfiguration configuration;
 
         [SerializeField]
+        [PerKey("Display", "Popup")]
+        [Popup("InputKeys.Array")]
+        [Display(Order = 0, SeqOpt = Seq.UniqueItems)]
+        private Dictionary<string, int> test = new Dictionary<string, int>();
+
+        [SerializeField]
         [Paragraph]
         private string json;
 

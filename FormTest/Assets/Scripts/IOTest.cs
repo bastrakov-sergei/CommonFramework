@@ -23,17 +23,17 @@ namespace Assets.Scripts
 
         public void OnGUI()
         {
-            float input = ioComponent.ReadAnalogInput(ExcInputs.Acceleration);
-            GUILayout.Label(ExcInputs.Acceleration + ": " + input);
+            float input = ioComponent.ReadAnalogInput(ExcInputKeys.Acceleration);
+            GUILayout.Label(ExcInputKeys.Acceleration + ": " + input);
 
-            input = ioComponent.ReadAnalogInput(ExcInputs.Brake);
-            GUILayout.Label(ExcInputs.Brake + ": " + input);
+            input = ioComponent.ReadAnalogInput(ExcInputKeys.Brake);
+            GUILayout.Label(ExcInputKeys.Brake + ": " + input);
 
-            input = ioComponent.ReadAnalogInput(ExcInputs.Clutch);
-            GUILayout.Label(ExcInputs.Clutch + ": " + input);
+            input = ioComponent.ReadAnalogInput(ExcInputKeys.Clutch);
+            GUILayout.Label(ExcInputKeys.Clutch + ": " + input);
 
-            input = ioComponent.ReadAnalogInput(ExcInputs.Handbrake);
-            GUILayout.Label(ExcInputs.Handbrake + ": " + input);
+            input = ioComponent.ReadAnalogInput(ExcInputKeys.Handbrake);
+            GUILayout.Label(ExcInputKeys.Handbrake + ": " + input);
 
             if (GUILayout.Button("Send"))
             {
