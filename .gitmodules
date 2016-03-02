@@ -10,3 +10,6 @@
 [submodule "UnityInputLibrary"]
 	path = UnityInputLibrary
 	url = https://github.com/sergey-bastrakov/UnityInputLibrary
+[submodule "VFWLibrary"]
+	path = VFWLibrary
+	url = https://github.com/sergey-bastrakov/VFWLibrary
