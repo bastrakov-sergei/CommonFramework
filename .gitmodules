@@ -7,3 +7,6 @@
 [submodule "CommonLibraries"]
 	path = CommonLibraries
 	url = https://github.com/sergey-bastrakov/CommonLibraries.git
+[submodule "UnityInputLibrary"]
+	path = UnityInputLibrary
+	url = https://github.com/sergey-bastrakov/UnityInputLibrary
