@@ -7,26 +7,26 @@ namespace ConsoleApplication1
     {
         static void Main(string[] args)
         {
-            using (IHardwareSignals signals = new EmptyHardwareSignals(2, 2, 2, 2, 2))
+            IHardwareSignals signals = new EmptyHardwareSignals(2, 2, 2, 2, 2);
+
+            signals.Start();
+            HardwareInputOutput hardwareInputOutput =
+                new HardwareInputOutput(signals);
+
+            IInputOutputSystem inputOutputSystem = new InputOutputSystem
             {
-                signals.Start();
-                HardwareInputOutput hardwareInputOutput = new HardwareInputOutput(new HardwareInputConfiguration {Signals = signals});
+                In = hardwareInputOutput,
+                Out = hardwareInputOutput
+            };
 
-                IInputOutputSystem inputOutputSystem = new InputOutputSystem
-                {
-                    In = hardwareInputOutput,
-                    Out = hardwareInputOutput
-                };
+            IInputReader inputReader = inputOutputSystem.In;
+            IOutputWriter outputWriter = inputOutputSystem.Out;
 
-                IInputReader inputReader = inputOutputSystem.In;
-                IOutputWriter outputWriter = inputOutputSystem.Out;
+            float acceleration = inputReader.ReadAnalogInput("Acceleration");
 
-                float acceleration = inputReader.ReadAnalogInput("Acceleration");
+            float speed = acceleration;
 
-                float speed = acceleration;
-
-                outputWriter.WriteAnalogOuput("Speed", speed);
-            }
+            outputWriter.WriteAnalogOuput("Speed", speed);
         }
     }
 }
